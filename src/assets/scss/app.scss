@@ -1,5 +1,9 @@
 @use "variables";
 
+#root {
+  position: relative;
+}
+
 .background-top {
   height: 40vh;
   background-image: url("/src/assets/images/bg-desktop-dark.jpg");

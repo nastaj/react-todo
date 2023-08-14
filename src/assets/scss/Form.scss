@@ -1,0 +1,24 @@
+@use "./variables";
+
+.form {
+  width: 100%;
+  background-color: variables.$color-theme-dark-desaturatedblue;
+  border-radius: 0.3rem;
+  padding: 1.6rem 3rem;
+
+  input {
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    font-size: 2rem;
+    color: variables.$color-theme-dark-lightblue;
+  }
+
+  input::placeholder {
+    color: variables.$color-theme-dark-blue--1;
+  }
+
+  input:focus {
+    outline: none;
+  }
+}

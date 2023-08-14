@@ -1,0 +1,23 @@
+@use "./variables";
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3.2rem;
+}
+
+.heading-primary {
+  font-size: 4.8rem;
+  color: variables.$color-theme-light-blue--1;
+  text-transform: uppercase;
+  letter-spacing: 1.6rem;
+  font-weight: variables.$font-weight--bold;
+}
+
+.btn-theme {
+  border: none;
+  background: none;
+  cursor: pointer;
+  height: 100%;
+}
