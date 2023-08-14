@@ -1,0 +1,26 @@
+// Typography
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
+$paragraph-default: 1.8rem;
+
+// Colors
+$color-primary-blue: hsl(220, 98%, 61%);
+$color-primary-gradient: linear-gradient hsl(192, 100%, 67%) to
+  hsl(280, 87%, 65%);
+
+$color-theme-light-gray: hsl(0, 0%, 98%);
+$color-theme-light-blue--1: hsl(236, 33%, 92%);
+$color-theme-light-blue--2: hsl(233, 11%, 84%);
+$color-theme-light-blue--3: hsl(236, 9%, 61%);
+$color-theme-light-blue--4: hsl(235, 19%, 35%);
+
+$color-theme-dark-deepblue: hsl(235, 21%, 11%);
+$color-theme-dark-desaturatedblue: hsl(235, 24%, 19%);
+$color-theme-dark-lightblue: hsl(234, 39%, 85%);
+$color-theme-dark-lightblue--hover: hsl(236, 33%, 92%);
+$color-theme-dark-blue--1: hsl(234, 11%, 52%);
+$color-theme-dark-blue--2: hsl(233, 14%, 35%);
+$color-theme-dark-blue--3: hsl(237, 14%, 26%);
+
+// Font weights
+$font-weight--regular: 400;
+$font-weight--bold: 700;
