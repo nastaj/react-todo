@@ -1,0 +1,10 @@
+@use "./variables";
+
+.task-list {
+  list-style-type: none;
+
+  :first-child {
+    border-top-right-radius: 0.3rem;
+    border-top-left-radius: 0.3rem;
+  }
+}

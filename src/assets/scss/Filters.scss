@@ -1,0 +1,15 @@
+@use "./variables";
+
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 1.4rem;
+
+  button {
+    border: none;
+    background: none;
+    color: variables.$color-theme-dark-blue--1;
+    font-weight: variables.$font-weight--bold;
+    cursor: pointer;
+  }
+}

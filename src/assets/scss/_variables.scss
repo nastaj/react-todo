@@ -4,8 +4,10 @@ $paragraph-default: 1.8rem;
 
 // Colors
 $color-primary-blue: hsl(220, 98%, 61%);
-$color-primary-gradient: linear-gradient hsl(192, 100%, 67%) to
-  hsl(280, 87%, 65%);
+$color-primary-gradient: linear-gradient(
+  hsl(192, 100%, 67%),
+  hsl(280, 87%, 65%)
+);
 
 $color-theme-light-gray: hsl(0, 0%, 98%);
 $color-theme-light-blue--1: hsl(236, 33%, 92%);

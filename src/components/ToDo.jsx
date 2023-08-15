@@ -5,13 +5,13 @@ import Summary from "./Summary";
 
 import "../assets/scss/ToDo.scss";
 
-export default function ToDo() {
+export default function ToDo({ todos }) {
   return (
-    <div className="todo">
+    <main className="todo">
       <Header />
       <Form />
-      <TaskList />
+      <TaskList todos={todos} />
       <Summary />
-    </div>
+    </main>
   );
 }
