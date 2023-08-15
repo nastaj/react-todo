@@ -1,12 +1,16 @@
 import Filters from "./Filters";
 import "../assets/scss/Summary.scss";
 
-export default function Summary() {
+export default function Summary({ todos, onClearComplete, view, onView }) {
+  const itemsLeft = todos.filter((todo) => !todo.completed).length;
+
   return (
     <footer className="summary">
-      <span>x items left</span>
-      <Filters />
-      <button>Clear completed</button>
+      {itemsLeft === 0 && <span>All tasks complete!</span>}
+      {itemsLeft === 1 && <span>{itemsLeft} item left</span>}
+      {itemsLeft > 1 && <span>{itemsLeft} items left</span>}
+      <Filters view={view} onView={onView} />
+      <button onClick={onClearComplete}>Clear completed</button>
     </footer>
   );
 }

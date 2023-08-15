@@ -13,3 +13,7 @@
     cursor: pointer;
   }
 }
+
+.active {
+  color: variables.$color-primary-blue !important;
+}

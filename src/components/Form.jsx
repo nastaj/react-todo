@@ -1,9 +1,33 @@
+import { useState } from "react";
 import "../assets/scss/Form.scss";
 
-export default function Form() {
+export default function Form({ onAddTodo }) {
+  const [description, setDescription] = useState("");
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    if (!description) return;
+
+    const newItem = {
+      id: crypto.randomUUID(),
+      description,
+      completed: false,
+    };
+
+    onAddTodo(newItem);
+    setDescription("");
+  }
+
   return (
-    <form className="form">
-      <input type="text" id="desc" placeholder="Create a new todo..." />
+    <form className="form" onSubmit={handleSubmit}>
+      <input
+        type="text"
+        id="desc"
+        value={description}
+        onChange={(e) => setDescription(e.target.value)}
+        placeholder="Create a new todo..."
+      />
     </form>
   );
 }

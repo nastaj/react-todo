@@ -1,7 +1,7 @@
 import "./assets/scss/App.scss";
 import ToDo from "./components/ToDo";
 
-const todos = [
+const initialTodos = [
   {
     id: crypto.randomUUID(),
     description: "Pick up groceries",
@@ -39,7 +39,7 @@ function App() {
     <>
       <div className="background-top"></div>
       <div className="background-bottom"></div>
-      <ToDo todos={todos} />
+      <ToDo initialTodos={initialTodos} />
     </>
   );
 }
