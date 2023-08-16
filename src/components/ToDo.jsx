@@ -3,14 +3,20 @@ import Form from "./Form";
 import TaskList from "./TaskList";
 import Summary from "./Summary";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "../assets/scss/ToDo.scss";
 
 export default function ToDo({ initialTodos, toggleTheme, theme }) {
-  const [todos, setTodos] = useState([...initialTodos]);
+  const [todos, setTodos] = useState(
+    JSON.parse(localStorage.getItem("todos")) || [...initialTodos]
+  );
   const [view, setView] = useState("all");
   const activeTodos = todos.filter((todo) => !todo.completed);
   const completedTodos = todos.filter((todo) => todo.completed);
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
 
   function handleAddTodo(newItem) {
     setTodos((todos) => [...todos, newItem]);
