@@ -4,14 +4,32 @@
   position: relative;
 }
 
+#light {
+  .background-top {
+    background-image: url("/src/assets/images/bg-desktop-light.jpg");
+  }
+
+  .background-bottom {
+    background-color: variables.$color-theme-light-blue--1;
+  }
+}
+
+#dark {
+  .background-top {
+    background-image: url("/src/assets/images/bg-desktop-dark.jpg");
+  }
+
+  .background-bottom {
+    background-color: variables.$color-theme-dark-deepblue;
+  }
+}
+
 .background-top {
   height: 40vh;
-  background-image: url("/src/assets/images/bg-desktop-dark.jpg");
   background-size: cover;
   background-position: center;
 }
 
 .background-bottom {
   height: 60vh;
-  background-color: variables.$color-theme-dark-deepblue;
 }

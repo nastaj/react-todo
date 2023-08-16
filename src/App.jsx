@@ -1,5 +1,6 @@
 import "./assets/scss/App.scss";
 import ToDo from "./components/ToDo";
+import { createContext, useState } from "react";
 
 const initialTodos = [
   {
@@ -34,13 +35,27 @@ const initialTodos = [
   },
 ];
 
+export const ThemeContext = createContext(null);
+
 function App() {
+  const [theme, setTheme] = useState("light");
+
+  function toggleTheme() {
+    setTheme((curr) => (curr === "light" ? "dark" : "light"));
+  }
+
   return (
-    <>
-      <div className="background-top"></div>
-      <div className="background-bottom"></div>
-      <ToDo initialTodos={initialTodos} />
-    </>
+    <ThemeContext.Provider value={{ theme, setTheme }}>
+      <div className="app" id={theme}>
+        <div className="background-top"></div>
+        <div className="background-bottom"></div>
+        <ToDo
+          initialTodos={initialTodos}
+          toggleTheme={toggleTheme}
+          theme={theme}
+        />
+      </div>
+    </ThemeContext.Provider>
   );
 }
 

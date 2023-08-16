@@ -11,6 +11,9 @@ export default function TaskList({
 }) {
   return (
     <ul className="task-list">
+      {todos.length === 0 && (
+        <p className="tasks-empty">No tasks left on the list!</p>
+      )}
       {view === "all" &&
         todos.map((item) => (
           <Item

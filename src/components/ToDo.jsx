@@ -3,10 +3,10 @@ import Form from "./Form";
 import TaskList from "./TaskList";
 import Summary from "./Summary";
 
-import "../assets/scss/ToDo.scss";
 import { useState } from "react";
+import "../assets/scss/ToDo.scss";
 
-export default function ToDo({ initialTodos }) {
+export default function ToDo({ initialTodos, toggleTheme, theme }) {
   const [todos, setTodos] = useState([...initialTodos]);
   const [view, setView] = useState("all");
   const activeTodos = todos.filter((todo) => !todo.completed);
@@ -34,7 +34,7 @@ export default function ToDo({ initialTodos }) {
 
   return (
     <main className="todo">
-      <Header />
+      <Header toggleTheme={toggleTheme} theme={theme} />
       <Form onAddTodo={handleAddTodo} />
       <TaskList
         todos={todos}

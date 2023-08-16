@@ -1,10 +1,29 @@
 @use "./variables";
 
+#light {
+  .tasks-empty {
+    color: variables.$color-theme-light-gray;
+  }
+}
+
+#dark {
+  .tasks-empty {
+    color: variables.$color-theme-dark-lightblue;
+  }
+}
+
 .task-list {
   list-style-type: none;
+  min-height: calc(77.19px * 6);
 
   :first-child {
     border-top-right-radius: 0.3rem;
     border-top-left-radius: 0.3rem;
   }
+}
+
+.tasks-empty {
+  font-size: variables.$paragraph-default;
+  text-align: center;
+  padding-bottom: 1.6rem;
 }

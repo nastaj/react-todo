@@ -1,7 +1,42 @@
 @use "./variables";
 
+#light {
+  .summary {
+    background-color: variables.$color-theme-light-gray;
+
+    span {
+      color: variables.$color-theme-light-blue--3;
+    }
+
+    button {
+      color: variables.$color-theme-light-blue--3;
+
+      &:hover {
+        color: variables.$color-theme-light-blue--4;
+      }
+    }
+  }
+}
+
+#dark {
+  .summary {
+    background-color: variables.$color-theme-dark-desaturatedblue;
+
+    span {
+      color: variables.$color-theme-dark-blue--2;
+    }
+
+    button {
+      color: variables.$color-theme-dark-blue--2;
+
+      &:hover {
+        color: variables.$color-theme-dark-lightblue--hover;
+      }
+    }
+  }
+}
+
 .summary {
-  background-color: variables.$color-theme-dark-desaturatedblue;
   padding: 1.6rem 3rem;
   font-size: 1.6rem;
   border-bottom-left-radius: 0.3rem;
@@ -12,7 +47,6 @@
   align-items: center;
 
   span {
-    color: variables.$color-theme-dark-blue--2;
     flex: 0 1 25%;
   }
 
@@ -20,12 +54,7 @@
     display: inline-block;
     border: none;
     background: none;
-    color: variables.$color-theme-dark-blue--2;
     cursor: pointer;
     transition: 0.2s all;
-
-    &:hover {
-      color: variables.$color-theme-dark-lightblue--hover;
-    }
   }
 }
