@@ -4,7 +4,7 @@ export default function Header({ toggleTheme, theme }) {
   return (
     <header className="header">
       <h1 className="heading-primary">Todo</h1>
-      <button className="btn-theme" onClick={toggleTheme}>
+      <button type="button" className="btn-theme" onClick={toggleTheme}>
         <img
           src={
             theme === "dark"

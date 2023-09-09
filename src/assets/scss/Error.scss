@@ -1,0 +1,15 @@
+#light {
+  .error-msg {
+    color: hsl(235, 19%, 35%);
+  }
+}
+
+#dark {
+  .error-msg {
+    color: hsl(234, 39%, 85%);
+  }
+}
+.error-msg {
+  font-size: 1.8rem;
+  text-align: center;
+}

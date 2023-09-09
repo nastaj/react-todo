@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "../assets/scss/Form.scss";
 
-export default function Form({ onAddTodo }) {
+export default function Form({ dispatch }) {
   const [description, setDescription] = useState("");
 
   function handleSubmit(e) {
@@ -15,13 +15,14 @@ export default function Form({ onAddTodo }) {
       completed: false,
     };
 
-    onAddTodo(newItem);
+    dispatch({ type: "addTask", payload: newItem });
     setDescription("");
   }
 
   return (
     <form className="form" onSubmit={handleSubmit}>
       <input
+        aria-label="task-description"
         type="text"
         id="desc"
         value={description}

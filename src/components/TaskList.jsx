@@ -6,8 +6,7 @@ export default function TaskList({
   activeTodos,
   completedTodos,
   view,
-  onDeleteTodo,
-  onCompleteTodo,
+  dispatch,
 }) {
   return (
     <ul className="task-list">
@@ -16,32 +15,17 @@ export default function TaskList({
       )}
       {view === "all" &&
         todos.map((item) => (
-          <Item
-            item={item}
-            key={item.id}
-            onDeleteTodo={onDeleteTodo}
-            onCompleteTodo={onCompleteTodo}
-          />
+          <Item item={item} key={item.id} dispatch={dispatch} />
         ))}
 
       {view === "active" &&
         activeTodos.map((item) => (
-          <Item
-            item={item}
-            key={item.id}
-            onDeleteTodo={onDeleteTodo}
-            onCompleteTodo={onCompleteTodo}
-          />
+          <Item item={item} key={item.id} dispatch={dispatch} />
         ))}
 
       {view === "completed" &&
         completedTodos.map((item) => (
-          <Item
-            item={item}
-            key={item.id}
-            onDeleteTodo={onDeleteTodo}
-            onCompleteTodo={onCompleteTodo}
-          />
+          <Item item={item} key={item.id} dispatch={dispatch} />
         ))}
     </ul>
   );
