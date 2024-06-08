@@ -1,5 +1,9 @@
 import Item from "./Item";
 import "../assets/scss/TaskList.scss";
+import {
+  SortableContext,
+  verticalListSortingStrategy,
+} from "@dnd-kit/sortable";
 
 export default function TaskList({
   todos,
@@ -13,20 +17,36 @@ export default function TaskList({
       {todos.length === 0 && (
         <p className="tasks-empty">No tasks left on the list!</p>
       )}
-      {view === "all" &&
-        todos.map((item) => (
-          <Item item={item} key={item.id} dispatch={dispatch} />
-        ))}
 
-      {view === "active" &&
-        activeTodos.map((item) => (
-          <Item item={item} key={item.id} dispatch={dispatch} />
-        ))}
+      {view === "all" && (
+        <SortableContext items={todos} strategy={verticalListSortingStrategy}>
+          {todos.map((item) => (
+            <Item id={item.id} item={item} key={item.id} dispatch={dispatch} />
+          ))}
+        </SortableContext>
+      )}
 
-      {view === "completed" &&
-        completedTodos.map((item) => (
-          <Item item={item} key={item.id} dispatch={dispatch} />
-        ))}
+      {view === "active" && (
+        <SortableContext
+          items={activeTodos}
+          strategy={verticalListSortingStrategy}
+        >
+          {activeTodos.map((item) => (
+            <Item id={item.id} item={item} key={item.id} dispatch={dispatch} />
+          ))}
+        </SortableContext>
+      )}
+
+      {view === "completed" && (
+        <SortableContext
+          items={completedTodos}
+          strategy={verticalListSortingStrategy}
+        >
+          {completedTodos.map((item) => (
+            <Item id={item.id} item={item} key={item.id} dispatch={dispatch} />
+          ))}
+        </SortableContext>
+      )}
     </ul>
   );
 }

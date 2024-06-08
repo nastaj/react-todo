@@ -7,6 +7,16 @@ import TaskList from "./TaskList";
 import Summary from "./Summary";
 import ErrorMsg from "./ErrorMsg";
 import Footer from "./Footer";
+import {
+  DndContext,
+  KeyboardSensor,
+  PointerSensor,
+  TouchSensor,
+  closestCorners,
+  useSensor,
+  useSensors,
+} from "@dnd-kit/core";
+import { arrayMove, sortableKeyboardCoordinates } from "@dnd-kit/sortable";
 
 const initialState = {
   todos: JSON.parse(localStorage.getItem("todos")) || null,
@@ -50,6 +60,14 @@ function reducer(state, action) {
         ),
       };
     }
+    case "moveTask": {
+      const { originalPos, newPos } = action.payload;
+
+      return {
+        ...state,
+        todos: arrayMove(state.todos, originalPos, newPos),
+      };
+    }
     case "clearCompletedTasks": {
       return {
         ...state,
@@ -72,6 +90,29 @@ export default function ToDo({ toggleTheme, theme }) {
   const [{ todos, view, error }, dispatch] = useReducer(reducer, initialState);
   const activeTodos = todos.filter((todo) => !todo.completed);
   const completedTodos = todos.filter((todo) => todo.completed);
+
+  const sensors = useSensors(
+    useSensor(PointerSensor),
+    useSensor(TouchSensor),
+    useSensor(KeyboardSensor, {
+      coordinateGetter: sortableKeyboardCoordinates,
+    })
+  );
+
+  function getTasksPos(id) {
+    return todos.findIndex((item) => item.id === id);
+  }
+
+  function handleDragEnd(event) {
+    const { active, over } = event;
+
+    if (active.id === over.id) return;
+
+    const originalPos = getTasksPos(active.id);
+    const newPos = getTasksPos(over.id);
+
+    dispatch({ type: "moveTask", payload: { originalPos, newPos } });
+  }
 
   useEffect(function () {
     async function loadData() {
@@ -105,13 +146,19 @@ export default function ToDo({ toggleTheme, theme }) {
 
       <Main>
         <Form dispatch={dispatch} />
-        <TaskList
-          todos={todos}
-          activeTodos={activeTodos}
-          completedTodos={completedTodos}
-          view={view}
-          dispatch={dispatch}
-        />
+        <DndContext
+          collisionDetection={closestCorners}
+          onDragEnd={handleDragEnd}
+          sensors={sensors}
+        >
+          <TaskList
+            todos={todos}
+            activeTodos={activeTodos}
+            completedTodos={completedTodos}
+            view={view}
+            dispatch={dispatch}
+          />
+        </DndContext>
         <Summary todos={todos} view={view} dispatch={dispatch} />
         {error && <ErrorMsg error={error} />}
       </Main>

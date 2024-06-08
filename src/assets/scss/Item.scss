@@ -53,6 +53,8 @@
   align-items: center;
   justify-content: space-between;
 
+  touch-action: none;
+
   &:hover {
     button {
       opacity: 1;
@@ -132,4 +134,9 @@
 
 .completed {
   text-decoration: line-through;
+}
+
+.icon-dnd {
+  cursor: pointer;
+  margin-right: 1.6rem;
 }
