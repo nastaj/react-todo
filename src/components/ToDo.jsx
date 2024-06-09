@@ -1,12 +1,5 @@
 import { useEffect, useReducer } from "react";
-import "../assets/scss/ToDo.scss";
-import Header from "./Header";
-import Main from "./Main";
-import Form from "./Form";
-import TaskList from "./TaskList";
-import Summary from "./Summary";
-import ErrorMsg from "./ErrorMsg";
-import Footer from "./Footer";
+import { arrayMove, sortableKeyboardCoordinates } from "@dnd-kit/sortable";
 import {
   DndContext,
   KeyboardSensor,
@@ -16,7 +9,16 @@ import {
   useSensor,
   useSensors,
 } from "@dnd-kit/core";
-import { arrayMove, sortableKeyboardCoordinates } from "@dnd-kit/sortable";
+
+import Header from "./Header";
+import Main from "./Main";
+import Form from "./Form";
+import TaskList from "./TaskList";
+import Summary from "./Summary";
+import ErrorMsg from "./ErrorMsg";
+import Footer from "./Footer";
+
+import "../assets/scss/ToDo.scss";
 
 const initialState = {
   todos: JSON.parse(localStorage.getItem("todos")) || null,
