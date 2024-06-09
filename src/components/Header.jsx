@@ -8,8 +8,8 @@ export default function Header({ toggleTheme, theme }) {
         <img
           src={
             theme === "dark"
-              ? "/src/assets/images/icon-sun.svg"
-              : "/src/assets/images/icon-moon.svg"
+              ? "./images/icon-sun.svg"
+              : "./images/icon-moon.svg"
           }
           alt={`${theme} theme button`}
         />

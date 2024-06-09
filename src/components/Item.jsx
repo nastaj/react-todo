@@ -18,7 +18,7 @@ export default function Item({ item, id, dispatch }) {
         {...attributes}
         {...listeners}
         className="icon-dnd"
-        src="/src/assets/images/icon-drag-and-drop.svg"
+        src="./images/icon-drag-and-drop.svg"
         alt="Drag and Drop icon"
         width={14}
         height={14}
@@ -38,7 +38,7 @@ export default function Item({ item, id, dispatch }) {
         type="button"
         onClick={() => dispatch({ type: "deleteTask", payload: item.id })}
       >
-        <img src="/src/assets/images/icon-cross.svg" alt="Clear task button" />
+        <img src="./images/icon-cross.svg" alt="Clear task button" />
       </button>
     </li>
   );
