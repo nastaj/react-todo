@@ -36,8 +36,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Frontend Mentor](https://www.frontendmentor.io/solutions/todo-app-using-react-sass-and-dnd-kit-7dNEjTKENZ)
+- Live Site URL: [Github Pages](https://nastaj.github.io/react-todo/)
 
 ## My process
 
