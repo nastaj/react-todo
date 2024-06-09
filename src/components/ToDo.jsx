@@ -21,7 +21,7 @@ import Footer from "./Footer";
 import "../assets/scss/ToDo.scss";
 
 const initialState = {
-  todos: JSON.parse(localStorage.getItem("todos")) || null,
+  todos: JSON.parse(localStorage.getItem("todos")) || [],
   view: "all",
   error: "",
 };
